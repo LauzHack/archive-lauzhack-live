@@ -23,6 +23,7 @@ class Live extends Component {
     componentDidMount() {
         this.interval = setInterval(() => this.fetchData(), 10000);
     }
+
     componentWillUnmount() {
         clearInterval(this.interval);
     }
@@ -31,13 +32,20 @@ class Live extends Component {
         return (
             <div>
                 <Grid>
-                    {this.state.messages.map(message => (
-                        <Row key={message.id} className="show-grid">
+                    {this.state.messages.length > 0 ?
+                        this.state.messages.map(message => (
+                            <Row key={message.id} className="show-grid">
+                                <Col xs={12}>
+                                    <h2>{message.text}</h2>
+                                </Col>
+                            </Row>
+                        )) :
+                        <Row className="show-grid">
                             <Col xs={12}>
-                                <h2>{message.text}</h2>
+                                <h2>There are no messages to display.</h2>
                             </Col>
                         </Row>
-                    ))}
+                    }
                 </Grid>
             </div>
         )
