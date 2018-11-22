@@ -35,19 +35,21 @@ class App extends Component {
             <div className="App">
                 <Navbar fixedTop={true}>
                     <Navbar.Header>
-                        <Navbar.Brand>LauzHack</Navbar.Brand>
+                        <Navbar.Brand >LauzHack Live</Navbar.Brand>
                     </Navbar.Header>
-                    <Nav>
-                        <NavItem eventKey={1} onClick={() => this.changePage('live')}>Live</NavItem>
-                        <NavItem eventKey={2} onClick={() => this.changePage('social')}>Social</NavItem>
-                        <NavItem eventKey={3} href="https://lauzhack.com/#schedule">Schedule</NavItem>
-                        <NavItem eventKey={4} href="https://lauzhack2018.slack.com">Slack</NavItem>
-                    </Nav>
+                    <Navbar.Collapse>
+                        <Nav>
+                            <NavItem eventKey={1} onClick={() => this.changePage('live')}>Live</NavItem>
+                            <NavItem eventKey={2} onClick={() => this.changePage('social')}>Social</NavItem>
+                            <NavItem eventKey={3} href="https://lauzhack.com/#schedule">Schedule</NavItem>
+                            <NavItem eventKey={4} href="https://lauzhack2018.slack.com">Slack</NavItem>
+                        </Nav>
+                    </Navbar.Collapse>
                 </Navbar>
 
                 <div className="content">
                     {this.state.displayLive && <Live/>}
-                    {this.state.displayYou && <Social />}
+                    {this.state.displayYou && <Social/>}
                 </div>
             </div>
         );
