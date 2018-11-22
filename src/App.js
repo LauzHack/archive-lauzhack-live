@@ -1,28 +1,57 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {Navbar, Nav, NavItem} from 'react-bootstrap';
+
+import Live from './Live';
+import Social from './Social';
+
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            displayLive: true,
+            displayYou: false,
+        }
+    }
+
+    changePage(page) {
+        if (page === 'social') {
+            this.setState({
+                displayLive: false,
+                displayYou: true,
+            });
+        } else {
+            this.setState({
+                displayLive: true,
+                displayYou: false,
+            })
+        }
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <Navbar fixedTop={true}>
+                    <Navbar.Header>
+                        <Navbar.Brand>LauzHack</Navbar.Brand>
+                    </Navbar.Header>
+                    <Nav>
+                        <NavItem eventKey={1} onClick={() => this.changePage('live')}>Live</NavItem>
+                        <NavItem eventKey={2} onClick={() => this.changePage('social')}>Social</NavItem>
+                        <NavItem eventKey={3} href="https://lauzhack.com/#schedule">Schedule</NavItem>
+                        <NavItem eventKey={4} href="https://lauzhack2018.slack.com">Slack</NavItem>
+                    </Nav>
+                </Navbar>
+
+                <div className="content">
+                    {this.state.displayLive && <Live/>}
+                    {this.state.displayYou && <Social />}
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;
