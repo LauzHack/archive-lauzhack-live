@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 
-const BACKEND_URL = 'http://127.0.0.1:5000/';
+const BACKEND_URL = 'https://zoh1fivbel.execute-api.eu-central-1.amazonaws.com/prod/';
 
 class Live extends Component {
     constructor(props) {
@@ -17,11 +17,14 @@ class Live extends Component {
     fetchData() {
         fetch(BACKEND_URL + 'messages')
             .then(res => res.json())
-            .then(data => this.setState({messages: data}));
+            .then(data => {
+                data.sort((a, b) => b.timestamp - a.timestamp);
+                this.setState({messages: data})
+            });
     }
 
     componentDidMount() {
-        this.interval = setInterval(() => this.fetchData(), 10000);
+        this.interval = setInterval(() => this.fetchData(), 60000);
     }
 
     componentWillUnmount() {
@@ -32,11 +35,12 @@ class Live extends Component {
         return (
             <div>
                 <Grid>
+                    <h1>Announcements</h1>
                     {this.state.messages.length > 0 ?
-                        this.state.messages.map(message => (
+                        this.state.messages.map((message, index) => (
                             <Row key={message.id} className="show-grid">
                                 <Col xs={12}>
-                                    <h2>{message.text}</h2>
+                                    {index === 0 ? <h2>{message.text}</h2> : <h3>{message.text}</h3>}
                                 </Col>
                             </Row>
                         )) :

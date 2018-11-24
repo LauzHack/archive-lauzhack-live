@@ -36,13 +36,15 @@ class App extends Component {
                 <Navbar fixedTop={true}>
                     <Navbar.Header>
                         <Navbar.Brand >LauzHack Live</Navbar.Brand>
+                        <Navbar.Toggle />
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav>
                             <NavItem eventKey={1} onClick={() => this.changePage('live')}>Live</NavItem>
                             <NavItem eventKey={2} onClick={() => this.changePage('social')}>Social</NavItem>
                             <NavItem eventKey={3} href="https://lauzhack.com/#schedule">Schedule</NavItem>
-                            <NavItem eventKey={4} href="https://lauzhack2018.slack.com">Slack</NavItem>
+                            <NavItem eventKey={4} href="https://lauzhack.com/challenges">Challenges</NavItem>
+                            <NavItem eventKey={5} href="https://lauzhack2018.slack.com">Slack</NavItem>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
