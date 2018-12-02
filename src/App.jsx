@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
+import config from './config.json';
+
 import Live from './Live';
 import Social from './Social';
 
@@ -42,9 +44,9 @@ class App extends Component {
             <Nav>
               <NavItem eventKey={1} onClick={() => this.changePage('live')}>Live</NavItem>
               <NavItem eventKey={2} onClick={() => this.changePage('social')}>Social</NavItem>
-              <NavItem eventKey={3} href="https://lauzhack.com/#schedule">Schedule</NavItem>
-              <NavItem eventKey={4} href="https://lauzhack.com/challenges">Challenges</NavItem>
-              <NavItem eventKey={5} href="https://lauzhack2018.slack.com">Slack</NavItem>
+              <NavItem eventKey={3} href={config.SCHEDULE_URL}>Schedule</NavItem>
+              <NavItem eventKey={4} href={config.CHALLENGES_URL}>Challenges</NavItem>
+              <NavItem eventKey={5} href={config.SLACK_URL}>Slack</NavItem>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

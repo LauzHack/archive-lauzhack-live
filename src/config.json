@@ -2,5 +2,9 @@
   "BACKEND_URL": "https://zoh1fivbel.execute-api.eu-central-1.amazonaws.com/prod/",
   "WALLSIO_URL": "https://walls.io/v3ujz?nobackground=1&amp;show_header=0",
 
+  "SCHEDULE_URL": "https://lauzhack.com/#schedule",
+  "CHALLENGES_URL": "https://lauzhack.com/challenges",
+  "SLACK_URL": "https://lauzhack2018.slack.com",
+
   "REFRESH_RATE": 30000
 }
