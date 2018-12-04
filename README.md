@@ -25,3 +25,7 @@ If you want to deploy it somewhere else, run `npm run build` and serve the files
 ## Customizing
 
 Some parameters of the application can be customized without changing the code. They are located in the `src/config.json` file. 
+
+## Future features
+
+* Play a sound when a new message comes in.
