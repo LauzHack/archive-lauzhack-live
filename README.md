@@ -8,7 +8,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Developing locally
 
-To develop locally in your machine, Node.js and npm are required. This was developed using Node 10 LTS, so [Node Version Manager](https://github.com/creationix/nvm) is recommended for having the specific version installed, listed in `package.json` (node and npm versions are checked when setting up the project using [ensure-node-env](https://github.com/Skyscanner/ensure-node-env)).
+To develop locally in your machine, Node.js and npm are required. This was developed using Node 12 LTS, so [Node Version Manager](https://github.com/creationix/nvm) is recommended for having the specific version installed, listed in `package.json` (node and npm versions are checked when setting up the project using [ensure-node-env](https://github.com/Skyscanner/ensure-node-env)).
+
+After installing the correct Node version using nvm, you can make sure you are using it by typing `nvm use`.
 
 Install all the requirements using `npm install`.
 

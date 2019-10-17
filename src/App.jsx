@@ -37,7 +37,7 @@ class App extends Component {
       <div className="App">
         <Navbar fixedTop>
           <Navbar.Header>
-            <Navbar.Brand >LauzHack Live</Navbar.Brand>
+            <Navbar.Brand>LauzHack Live</Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>

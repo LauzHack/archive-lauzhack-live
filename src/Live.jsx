@@ -24,7 +24,7 @@ class Live extends Component {
 
   fetchData() {
     fetch(`${config.BACKEND_URL}messages`)
-      .then(res => res.json())
+      .then((res) => res.json())
       .then((data) => {
         data.sort((a, b) => b.timestamp - a.timestamp);
         this.setState({ messages: data });
@@ -36,20 +36,21 @@ class Live extends Component {
       <div>
         <Grid>
           <h1>Announcements</h1>
-          {this.state.messages.length > 0 ?
-            this.state.messages.map((message, index) => (
+          {this.state.messages.length > 0
+            ? this.state.messages.map((message, index) => (
               <Row key={message.id} className="show-grid">
                 <Col xs={12}>
                   {index === 0 ? <h2>{message.text}</h2> : <h3>{message.text}</h3>}
                 </Col>
               </Row>
-            )) :
-            <Row className="show-grid">
-              <Col xs={12}>
-                <h2>There are no messages to display.</h2>
-              </Col>
-            </Row>
-          }
+            ))
+            : (
+              <Row className="show-grid">
+                <Col xs={12}>
+                  <h2>There are no messages to display.</h2>
+                </Col>
+              </Row>
+            )}
         </Grid>
       </div>
     );
